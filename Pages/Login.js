@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textView: {
-    justifyContent: '',
+     
     alignItems: "baseline",
   },
   TextInput: {
