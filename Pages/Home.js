@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Image } from 'react-native'
 import { useState } from 'react'
-// import Svg, { Use, Image, SvgXml } from 'react-native-svg'
+import { SvgXml } from 'react-native-svg'
 import InitialLogo from '../assets/Initial logo.svg'
 // import ImagemTeste from '../assets/col.png'
 
@@ -115,20 +115,11 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Button title='Teste 123' color={'blue'} onPress={testFunction} />
+      {/* <Button title='Teste 123' color={'blue'} onPress={testFunction} /> */}
 
-      {/* <View style={styles.iconWrapper}>
-        <Image source={InitialLogo} style={{ width: 24, height: 18 }} />
-      </View>
-      
-      <Svg width="160" height="160">
-        <Image href={InitialLogo} />
-      </Svg>
+      <SvgXml xml={teste123} width="100%"  />
 
-      <ImagemTeste /> */}
-
-      {/* <SvgXml xml={teste123} width="100%"  /> */}
-      {test &&
+      {/* {test &&
         <>
           <Text>Oi do Nicolau</Text>
           <Text>Oi do Nicolau</Text>
@@ -137,7 +128,7 @@ export default function Home() {
           <Text>Oi do Nicolau</Text>
           <Text>Oi do Nicolau</Text>
         </>
-      }
+      } */}
     </View>
   )
 }
