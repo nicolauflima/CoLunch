@@ -67,7 +67,7 @@ function Login({ navigation }) {
   const ref_input2 = useRef()
 
   const verifyUser = (email, password) => {
-    if (email.toLowerCase() === 'nick' && password === 'fatec') return alert('OK!')
+    if (email.toLowerCase() === 'nick' && password === 'fatec') return navigation.navigate('Principal')
     alert('Usuário ou senha incorretos :(')
   }
 

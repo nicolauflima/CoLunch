@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
-    width: '100%'
   },
   forgot_button: {
     height: 30,
@@ -59,42 +58,15 @@ const styles = StyleSheet.create({
 })
 
 
-
-
 function RecuperarSenha({ navigation }) {
-  const [email, setEmail] = useState('')
-
-  const verifyEmail = () => {
-    if (email.toLowerCase() === 'nick') {
-      alert('Enviamos um email para recuperar a sua senha')
-      return navigation.navigate('Login')
-    }
-
-    alert('Usuário não existe')
-  }
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageLogo}>
-        <Image source={require('../assets/CoLunch-logo.png')} />
-      </View>
-
 
       <View style={styles.textView}>
-        <Text style={styles.upperInputText}>E-mail:</Text>
-      </View>
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Ex: abc@example.com"
-          placeholderTextColor="#c8c8c8"
-          onChangeText={(email) => setEmail(email)}
-        />
+        <Text style={styles.upperInputText}>BUSCA</Text>
       </View>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => verifyEmail()}>
-        <Text style={styles.loginText}>Recuperar Senha</Text>
-      </TouchableOpacity>
     </View>
   )
 }
