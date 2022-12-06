@@ -57,9 +57,20 @@ const styles = StyleSheet.create({
   }
 })
 
-function Home() {
+
+
+
+function RecuperarSenha({ navigation }) {
   const [email, setEmail] = useState('')
 
+  const verifyEmail = () => {
+    if (email.toLowerCase() === 'nick') {
+      alert('Enviamos um email para recuperar a sua senha')
+      return navigation.navigate('Login')
+    }
+
+    alert('Usuário não existe')
+  }
 
   return (
     <View style={styles.container}>
@@ -80,7 +91,7 @@ function Home() {
         />
       </View>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => verifyEmail()}>
         <Text style={styles.loginText}>Recuperar Senha</Text>
       </TouchableOpacity>
     </View>
@@ -88,4 +99,4 @@ function Home() {
 }
 
 
-export default Home
+export default RecuperarSenha

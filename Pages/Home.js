@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
   },
 })
 
-function Home() {
+function Home({ navigation }) {
 
   useEffect(() => {
     setTimeout(() => {
-
-    }, 5000)
+      navigation.navigate('Login')
+    }, 4000)
   }, [])
 
   return (

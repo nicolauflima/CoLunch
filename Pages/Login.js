@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button, Image, TextInput, TouchableOpacity } from 'react-native'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const btnBaseStyle = {
   borderRadius: 16,
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     marginLeft: 20,
+    width: '100%'
   },
   forgot_button: {
     height: 30,
@@ -58,9 +59,17 @@ const styles = StyleSheet.create({
   }
 })
 
-function Home() {
+
+
+function Login({ navigation }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const ref_input2 = useRef()
+
+  const verifyUser = (email, password) => {
+    if (email.toLowerCase() === 'nick' && password === 'fatec') return alert('OK!')
+    alert('Usuário ou senha incorretos :(')
+  }
 
 
   return (
@@ -77,6 +86,7 @@ function Home() {
           placeholder="Ex: abc@example.com"
           placeholderTextColor="#c8c8c8"
           onChangeText={(email) => setEmail(email)}
+          onSubmitEditing={() => ref_input2.current.focus()}
         />
       </View>
 
@@ -86,18 +96,19 @@ function Home() {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="●●●●●●●●●     "
+          placeholder="●●●●●●●●●"
           placeholderTextColor="#c8c8c8"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
+          ref={ref_input2}
         />
       </View>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('RecuperarSenha')}>
         <Text style={styles.forgot_button}>Esqueceu a senha?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity style={styles.loginBtn} onPress={() => verifyUser(email, password)}>
         <Text style={styles.loginText}>Entrar</Text>
       </TouchableOpacity>
     </View>
@@ -105,4 +116,4 @@ function Home() {
 }
 
 
-export default Home
+export default Login
